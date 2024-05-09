@@ -74,7 +74,7 @@ lE =
             ((Ref.SomeTypeRep (Ref.TypeRep @(Health))), [(fmap show (enumUniform NotRecommendHealth PriorityHealth ))])
           ],
       targetType = (Ref.SomeTypeRep (Ref.TypeRep @(Parents -> HasNurs -> Form -> Children -> Housing -> Finance -> Social -> Health -> NurseryClass))),
-      maxDepth = 5,
+      maxDepth = 8,
       weights =
         ExpressionWeights
           { lambdaSpucker = 1,
