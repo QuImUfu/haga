@@ -35,7 +35,7 @@ options =
       ( long "population-size"
           <> short 'p'
           <> metavar "N"
-          <> value 400
+          <> value 100
           <> help "Population size"
       )
 
@@ -59,7 +59,7 @@ main =
       selectionType = Tournament 3,
       termination = (steps (iterations opts)),
       poulationSize = (populationSize opts),
-      stepSize = 120,
+      stepSize = 90,
       elitismRatio = 5/100
     }
     pop' <- runEffect (for (run cfg) logCsv)
