@@ -92,7 +92,7 @@ lE =
           { lambdaSpucker = 1,
             lambdaSchlucker = 2,
             symbol = 30,
-            variable = 10,
+            variable = 20,
             constant = 5
           }
     }

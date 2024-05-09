@@ -48,13 +48,13 @@ lE =
             ((Ref.SomeTypeRep (Ref.TypeRep @(IrisClass))), [(fmap show (enumUniform Setosa Versicolor :: RVar IrisClass))])
           ],
       targetType = (Ref.SomeTypeRep (Ref.TypeRep @(Float -> Float -> Float -> Float -> IrisClass))),
-      maxDepth = 10,
+      maxDepth = 8,
       weights =
         ExpressionWeights
           { lambdaSpucker = 1,
-            lambdaSchlucker = 1,
+            lambdaSchlucker = 2,
             symbol = 30,
-            variable = 100,
+            variable = 20,
             constant = 5
           }
     }
