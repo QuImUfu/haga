@@ -86,7 +86,7 @@ lE =
             ((Ref.SomeTypeRep (Ref.TypeRep @(Job))), [(fmap show (enumUniform UnemployedOrUnskilledNonResident HighlySkilled ))])
           ],
       targetType = (Ref.SomeTypeRep (Ref.TypeRep @(AccountStatus -> Int -> CreditHistory -> Purpose -> Int -> Savings -> EmploymentStatus -> Int -> StatusAndSex -> OtherDebtors -> Int -> Property -> Int -> OtherPlans -> Housing -> Int -> Job -> Int -> Bool -> Bool -> GermanClass))),
-      maxDepth = 5,
+      maxDepth = 9,
       weights =
         ExpressionWeights
           { lambdaSpucker = 1,
