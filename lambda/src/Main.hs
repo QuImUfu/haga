@@ -8,8 +8,8 @@ import Pipes
 import Pretty
 import Protolude hiding (for)
 import System.IO
-import LambdaDatasets.IrisDataset
--- import LambdaDatasets.NurseryDataset
+-- import LambdaDatasets.IrisDataset
+import LambdaDatasets.NurseryDataset
 -- import LambdaDatasets.GermanDataset
 import Debug.Trace as DB
 import qualified Data.Map.Strict as Map
