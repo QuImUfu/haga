@@ -2,8 +2,8 @@
 #SBATCH --time=12:00:00
 #SBATCH --partition=cpu
 #SBATCH --array=0-810
-#SBATCH --output=./output/output_run_%j.txt
-#SBATCH --error=./output/error_run_%j.txt
+#SBATCH --output=/data/%N/merljoha/output/output_run_%a.txt
+#SBATCH --error=/data/%N/merljoha/output/error_run_%a.txt
 #SBATCH --nodelist=oc-compute02,oc-compute03
 #SBATCH --mem=6G
 problems=("iris" "nurse" "german")
