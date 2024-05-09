@@ -68,7 +68,7 @@ lEE :: LamdaExecutionEnv
 lEE =
   LamdaExecutionEnv
     { -- For now these need to define all available functions and types. Generic functions can be used.
-      imports = ["LambdaDatasets.IrisDataset"],
+      imports = ["LambdaDatasets.IrisDefinition"],
       training = True,
       trainingData =
         ( map fst (takeFraktion 0.8 irisTrainingData),
@@ -89,7 +89,7 @@ shuffledLEE = do
   itD <- smpl $ shuffle irisTrainingData
   return  LamdaExecutionEnv
     { -- For now these need to define all available functions and types. Generic functions can be used.
-      imports = ["LambdaDatasets.IrisDataset"],
+      imports = ["LambdaDatasets.IrisDefinition"],
       training = True,
       trainingData =
         ( map fst (takeFraktion 0.8 itD),
