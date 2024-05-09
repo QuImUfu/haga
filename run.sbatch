@@ -4,7 +4,7 @@
 #SBATCH --array=0-810
 #SBATCH --output=../../%N/merljoha/output/output_run_%a.txt
 #SBATCH --error=../../%N/merljoha/output/error_run_%a.txt
-#SBATCH --nodelist=oc-compute02,oc-compute03
+#SBATCH --exclude=oc222
 #SBATCH --mem=6G
 #SBATCH --nodes=1
 problems=("iris" "nurse" "german")
