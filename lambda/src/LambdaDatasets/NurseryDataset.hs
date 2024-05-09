@@ -37,7 +37,7 @@ lE =
           [ -- Math
             -- Logic
             ((Ref.SomeTypeRep (Ref.TypeRep @(Bool -> Bool -> Bool))), ["(&&)", "(||)"]),
-            -- Ordered Enums
+            -- Ordered
             ((Ref.SomeTypeRep (Ref.TypeRep @(NurseryClass -> NurseryClass -> Bool))), ["(>)", "(==)", "(/=)", "(>=)"]),
             ((Ref.SomeTypeRep (Ref.TypeRep @(Parents -> Parents -> Bool))), ["(>)", "(==)", "(/=)", "(>=)"]),
             ((Ref.SomeTypeRep (Ref.TypeRep @(HasNurs -> HasNurs -> Bool))), ["(>)", "(==)", "(/=)", "(>=)"]),
@@ -47,7 +47,7 @@ lE =
             ((Ref.SomeTypeRep (Ref.TypeRep @(Finance -> Finance -> Bool))), ["(>)", "(==)", "(/=)", "(>=)"]),
             ((Ref.SomeTypeRep (Ref.TypeRep @(Social -> Social -> Bool))), ["(>)", "(==)", "(/=)", "(>=)"]),
             ((Ref.SomeTypeRep (Ref.TypeRep @(Health -> Health -> Bool))), ["(>)", "(==)", "(/=)", "(>=)"]),
-            -- Eq Enum
+            -- Eq
             -- Any Type
             ((Ref.SomeTypeRep (Ref.TypeRep @(Bool -> Int -> Int -> Int))), ["if'"]),
             ((Ref.SomeTypeRep (Ref.TypeRep @(Bool -> NurseryClass -> NurseryClass -> NurseryClass))), ["if'","if'","if'","if'","if'","if'","if'","if'"]),
@@ -74,13 +74,13 @@ lE =
             ((Ref.SomeTypeRep (Ref.TypeRep @(Health))), [(fmap show (enumUniform NotRecommendHealth PriorityHealth ))])
           ],
       targetType = (Ref.SomeTypeRep (Ref.TypeRep @(Parents -> HasNurs -> Form -> Children -> Housing -> Finance -> Social -> Health -> NurseryClass))),
-      maxDepth = 8,
+      maxDepth = 5,
       weights =
         ExpressionWeights
           { lambdaSpucker = 1,
             lambdaSchlucker = 2,
             symbol = 30,
-            variable = 20,
+            variable = 10,
             constant = 5
           }
     }

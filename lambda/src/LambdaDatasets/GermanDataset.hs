@@ -38,7 +38,7 @@ lE =
             ((Ref.SomeTypeRep (Ref.TypeRep @(Int -> Int -> Int))), ["(+)", "(-)", "(*)"]),
             -- Logic
             ((Ref.SomeTypeRep (Ref.TypeRep @(Bool -> Bool -> Bool))), ["(&&)", "(||)"]),
-            -- Ordered Enums
+            -- Ordered
             ((Ref.SomeTypeRep (Ref.TypeRep @(Int -> Int -> Bool))), ["(>)", "(==)", "(/=)", "(>=)"]),
             ((Ref.SomeTypeRep (Ref.TypeRep @(AccountStatus -> AccountStatus -> Bool))), ["(>)", "(==)", "(/=)", "(>=)"]),
             ((Ref.SomeTypeRep (Ref.TypeRep @(CreditHistory -> CreditHistory -> Bool))), ["(>)", "(==)", "(/=)", "(>=)"]),
@@ -46,7 +46,7 @@ lE =
             ((Ref.SomeTypeRep (Ref.TypeRep @(EmploymentStatus -> EmploymentStatus -> Bool))), ["(>)", "(==)", "(/=)", "(>=)"]),
             ((Ref.SomeTypeRep (Ref.TypeRep @(OtherDebtors -> OtherDebtors -> Bool))), ["(>)", "(==)", "(/=)", "(>=)"]),
             ((Ref.SomeTypeRep (Ref.TypeRep @(Job -> Job -> Bool))), ["(>)", "(==)", "(/=)", "(>=)"]),
-            -- Eq Enum
+            -- Eq
             ((Ref.SomeTypeRep (Ref.TypeRep @(GermanClass -> GermanClass -> Bool))), ["(==)", "(/=)"]),
             ((Ref.SomeTypeRep (Ref.TypeRep @(Purpose -> Purpose -> Bool))), ["(==)", "(/=)"]),
             ((Ref.SomeTypeRep (Ref.TypeRep @(StatusAndSex -> StatusAndSex -> Bool))), ["(==)", "(/=)"]),
@@ -55,7 +55,7 @@ lE =
             ((Ref.SomeTypeRep (Ref.TypeRep @(Housing -> Housing -> Bool))), ["(==)", "(/=)"]),
             -- Any Type
             ((Ref.SomeTypeRep (Ref.TypeRep @(Bool -> Int -> Int -> Int))), ["if'"]),
-            ((Ref.SomeTypeRep (Ref.TypeRep @(Bool -> GermanClass -> GermanClass -> GermanClass))), ["if'","if'","if'","if'","if'","if'","if'","if'"]),
+            ((Ref.SomeTypeRep (Ref.TypeRep @(Bool -> GermanClass -> GermanClass -> GermanClass))), ["if'"]),
             ((Ref.SomeTypeRep (Ref.TypeRep @(Bool -> AccountStatus -> AccountStatus -> AccountStatus))), ["if'"]),
             ((Ref.SomeTypeRep (Ref.TypeRep @(Bool -> CreditHistory -> CreditHistory -> CreditHistory))), ["if'"]),
             ((Ref.SomeTypeRep (Ref.TypeRep @(Bool -> Purpose -> Purpose -> Purpose))), ["if'"]),
@@ -86,13 +86,13 @@ lE =
             ((Ref.SomeTypeRep (Ref.TypeRep @(Job))), [(fmap show (enumUniform UnemployedOrUnskilledNonResident HighlySkilled ))])
           ],
       targetType = (Ref.SomeTypeRep (Ref.TypeRep @(AccountStatus -> Int -> CreditHistory -> Purpose -> Int -> Savings -> EmploymentStatus -> Int -> StatusAndSex -> OtherDebtors -> Int -> Property -> Int -> OtherPlans -> Housing -> Int -> Job -> Int -> Bool -> Bool -> GermanClass))),
-      maxDepth = 8,
+      maxDepth = 5,
       weights =
         ExpressionWeights
           { lambdaSpucker = 1,
             lambdaSchlucker = 2,
             symbol = 30,
-            variable = 20,
+            variable = 10,
             constant = 5
           }
     }

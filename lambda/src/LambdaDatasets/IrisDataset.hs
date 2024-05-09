@@ -34,12 +34,17 @@ lE =
   LambdaEnviroment
     { functions =
         Map.fromList
-          [ ((Ref.SomeTypeRep (Ref.TypeRep @(Float -> Float -> Float))), ["(+)", "(-)", "(*)"]),
-            ((Ref.SomeTypeRep (Ref.TypeRep @(Float -> Float -> Bool))), ["(>)", "(==)", "(>=)"]),
-            ((Ref.SomeTypeRep (Ref.TypeRep @(IrisClass -> IrisClass -> Bool))), ["(==)"]),
-            ((Ref.SomeTypeRep (Ref.TypeRep @(Bool -> Float -> Float -> Float))), ["if'","if'","if'","if'","if'","if'","if'","if'"]),
+          [  -- Math
+            ((Ref.SomeTypeRep (Ref.TypeRep @(Float -> Float -> Float))), ["(+)", "(-)", "(*)"]),
+            -- Logic
             ((Ref.SomeTypeRep (Ref.TypeRep @(Bool -> Bool -> Bool))), ["(&&)", "(||)"]),
-            ((Ref.SomeTypeRep (Ref.TypeRep @(Bool -> IrisClass -> IrisClass -> IrisClass))), ["if'","if'","if'","if'","if'","if'","if'","if'","if'","if'"])
+            -- Ordered
+            ((Ref.SomeTypeRep (Ref.TypeRep @(Float -> Float -> Bool))), ["(>)", "(==)", "(/=)", "(>=)"]),
+            -- Eq
+            ((Ref.SomeTypeRep (Ref.TypeRep @(IrisClass -> IrisClass -> Bool))), ["(==)","(/=)"]),
+            -- Any Type
+            ((Ref.SomeTypeRep (Ref.TypeRep @(Bool -> Float -> Float -> Float))), ["if'"]),
+            ((Ref.SomeTypeRep (Ref.TypeRep @(Bool -> IrisClass -> IrisClass -> IrisClass))), ["if'"])
           ],
       constants =
         Map.fromList
@@ -48,13 +53,13 @@ lE =
             ((Ref.SomeTypeRep (Ref.TypeRep @(IrisClass))), [(fmap show (enumUniform Setosa Versicolor :: RVar IrisClass))])
           ],
       targetType = (Ref.SomeTypeRep (Ref.TypeRep @(Float -> Float -> Float -> Float -> IrisClass))),
-      maxDepth = 8,
+      maxDepth = 5,
       weights =
         ExpressionWeights
           { lambdaSpucker = 1,
             lambdaSchlucker = 2,
             symbol = 30,
-            variable = 20,
+            variable = 10,
             constant = 5
           }
     }
