@@ -56,10 +56,10 @@ lE =
       maxDepth = 9,
       weights =
         ExpressionWeights
-          { lambdaSpucker = 1,
-            lambdaSchlucker = 2,
-            symbol = 30,
-            variable = 10,
+          { lambdaSpucker = 0,
+            lambdaSchlucker = 10,
+            symbol = 100,
+            variable = 5,
             constant = 5
           }
     }
