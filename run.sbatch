@@ -2,8 +2,8 @@
 #SBATCH --time=12:00:00
 #SBATCH --partition=cpu
 #SBATCH --array=0-810
-#SBATCH --output=../../%N/merljoha/output/output_run_%a.txt
-#SBATCH --error=../../%N/merljoha/output/error_run_%a.txt
+#SBATCH --output=./output/output_run_%a.txt
+#SBATCH --error=./output/error_run_%a.txt
 #SBATCH --exclude=oc222
 #SBATCH --mem=6G
 #SBATCH --nodes=1
