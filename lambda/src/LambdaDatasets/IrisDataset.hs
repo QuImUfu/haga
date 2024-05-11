@@ -155,7 +155,7 @@ evalResults ex trs = do
 evalResult :: LamdaExecutionEnv -> TypeRequester -> (Float -> Float -> Float -> Float -> IrisClass) -> (TypeRequester, FittnesRes)
 evalResult ex tr result = ( tr,
       FittnesRes
-        { total = score,
+        { total = acc * 100 + (biasSmall - 1),
           fitnessTotal = fitness',
           fitnessMean = meanOfAccuricyPerClass resAndTarget,
           fitnessGeoMean = geomeanOfDistributionAccuracy resAndTarget,
