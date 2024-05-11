@@ -189,7 +189,7 @@ evalResults ex trs = do
 evalResult :: LamdaExecutionEnv -> TypeRequester -> (AccountStatus -> Int -> CreditHistory -> Purpose -> Int -> Savings -> EmploymentStatus -> Int -> StatusAndSex -> OtherDebtors -> Int -> Property -> Int -> OtherPlans -> Housing -> Int -> Job -> Int -> Bool -> Bool -> GermanClass) -> (TypeRequester, FittnesRes)
 evalResult ex tr result = ( tr,
       FittnesRes
-        { total = score,
+        { total = acc * 100 + (biasSmall - 1),
           fitnessTotal = fitness',
           fitnessMean = meanOfAccuricyPerClass resAndTarget,
           fitnessGeoMean = geomeanOfDistributionAccuracy resAndTarget,
