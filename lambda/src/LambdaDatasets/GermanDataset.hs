@@ -151,6 +151,7 @@ data LamdaExecutionEnv = LamdaExecutionEnv
 data FittnesRes = FittnesRes
   { total :: R,
     fitnessTotal :: R,
+    costAccordingToDataset :: N,
     fitnessGeoMean :: R,
     fitnessMean :: R,
     accuracy :: R,
@@ -189,8 +190,9 @@ evalResults ex trs = do
 evalResult :: LamdaExecutionEnv -> TypeRequester -> (AccountStatus -> Int -> CreditHistory -> Purpose -> Int -> Savings -> EmploymentStatus -> Int -> StatusAndSex -> OtherDebtors -> Int -> Property -> Int -> OtherPlans -> Housing -> Int -> Job -> Int -> Bool -> Bool -> GermanClass) -> (TypeRequester, FittnesRes)
 evalResult ex tr result = ( tr,
       FittnesRes
-        { total = acc * 100 + (biasSmall - 1),
+        { total = (biasSmall - 1) - (fromIntegral costAccordingToDS),
           fitnessTotal = fitness',
+          costAccordingToDataset = costAccordingToDS,
           fitnessMean = meanOfAccuricyPerClass resAndTarget,
           fitnessGeoMean = geomeanOfDistributionAccuracy resAndTarget,
           accuracy = acc,
@@ -201,7 +203,8 @@ evalResult ex tr result = ( tr,
     where
     res = map (\(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t) -> result a b c d e f g h i j k l m n o p q r s t) (fst (dset ex))
     resAndTarget = (zip (snd (dset ex)) res)
-    acc = (foldr (\ts s -> if ((fst ts) == (snd ts)) then s + 1 else s) 0 resAndTarget) / fromIntegral (length resAndTarget)
+    acc = (foldr (\(actual,predicted) s -> if (actual == predicted) then s + 1 else s) 0 resAndTarget) / fromIntegral (length resAndTarget)
+    costAccordingToDS = (foldr (\(actual,predicted) s -> if ((actual) == (predicted)) then s else (if actual == Deny then s+5 else s+1)) 0 resAndTarget)
     biasSmall = exp ((-(fromIntegral (countTrsR tr))) / 1000) -- 0 (schlecht) bis 1 (gut)
     fitness' = meanOfAccuricyPerClass resAndTarget
     score = fitness' + (biasSmall - 1)
